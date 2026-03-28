@@ -1,7 +1,5 @@
 package linkedList;
 
-import java.util.LinkedList;
-
 public class BeginningInsert {
     Node head;
 
@@ -43,12 +41,3 @@ public class BeginningInsert {
 
 
 
-class Node {
-    int data;
-    Node next;
-
-    Node(int data){
-        this.data = data;
-        this.next = null;
-    }
-}
