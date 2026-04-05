@@ -15,6 +15,7 @@ public class PairTargetSum {
             if (sum == target) {
                 System.out.println("Found: " + arr[left] + ", " + arr[right]);
                 countPairs += 1;
+                // this is for all Values that meets with target
 //                right--;
 //                left++;
                 break;
