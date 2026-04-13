@@ -8,23 +8,20 @@ public class PairTargetSum {
 
         int left = 0;
         int right = arr.length - 1;
-        int countPairs = 0;
-        while (left < right) {
-            int sum = arr[left] + arr[right];
 
-            if (sum == target) {
-                System.out.println("Found: " + arr[left] + ", " + arr[right]);
-                countPairs += 1;
-                // this is for all Values that meets with target
-//                right--;
-//                left++;
-                break;
-            } else if (sum > target) {
-                right--;
-            } else {
-                left++;
+            int count = 0;
+
+            while(left<right){
+
+                int sum = arr[left] + arr[right];
+
+                if(sum<target){
+                    count = count+(right-left);
+                    left++;
+                }else{
+                    right --;
+                }
             }
-        }
-        System.out.println(countPairs);
+        System.out.println(count);
     }
 }
