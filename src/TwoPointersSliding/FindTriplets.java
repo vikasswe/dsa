@@ -65,6 +65,5 @@ public class FindTriplets {
             }
         }
         System.out.println(count);
-
     }
 }
