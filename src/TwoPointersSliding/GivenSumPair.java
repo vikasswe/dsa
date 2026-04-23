@@ -6,9 +6,9 @@ public class GivenSumPair {
 
     public static void main(String[] args) {
         GivenSumPair givenSumPair = new GivenSumPair();
-        int arr[] = {-1,0,1,2,-1,-4};
+        int arr[] = {-1 ,1, 5 ,5, 7};
         Arrays.sort(arr);
-        int target = 0;
+        int target = 6;
         int count = givenSumPair.countPairs(arr, target);
         System.out.println(count);
     }
@@ -44,8 +44,6 @@ public class GivenSumPair {
                     rightCount++;
                     right--;
                 }
-
-                System.out.println(leftCount + "lr" + rightCount);
 
                 count = count + (leftCount * rightCount);
 
