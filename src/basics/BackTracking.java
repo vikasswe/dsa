@@ -5,38 +5,35 @@ import java.util.List;
 
 public class BackTracking {
 
-    public static void main(String[] args) {
-        int[] arr = {4, 5, 6};
-        subsets(arr, 0, new ArrayList<>());
-    }
-
-    static void subsets(int[] arr, int i, List<Integer> temp) {
-
-        System.out.println("\n➡ ENTER CALL i = " + i + " temp = " + temp);
-
-        if (i == arr.length) {
-            System.out.println("✔ BASE CASE HIT i = " + i + " temp = " + temp);
+    static void solve(int idx, int[] arr, List<Integer> ds) {
+        System.out.println("Idx => " + idx);
+        System.out.println("arr => " + arr);
+        System.out.println("ds =>" + ds);
+        if (idx == arr.length) {
+            System.out.println("Base match => " + ds);
             return;
         }
 
-        // TAKE
-        System.out.println("👉 TAKE i = " + i + " value = " + arr[i]);
-        temp.add(arr[i]);
-        System.out.println("temp after add = " + temp);
-
-        subsets(arr, i + 1, temp);
+        // PICK
+        System.out.println("Picking => " + arr[idx]);
+        ds.add(arr[idx]);
+        System.out.println("Recursion call => " + idx + 1 + "arr => " + arr + "ds => " + ds);
+        solve(idx + 1, arr, ds);
 
         // BACKTRACK
-        System.out.println("🔙 BACKTRACK i = " + i + " removing = " + temp.get(temp.size() - 1));
-        temp.remove(temp.size() - 1);
-        System.out.println("temp after remove = " + temp);
+        System.out.println("Backtrack => " + ds.size() + "Idx => " + idx);
+        ds.remove(ds.size() - 1);
 
-        // DON'T TAKE
-        System.out.println("👉 DON'T TAKE i = " + i);
+        // NOT PICK
+        System.out.println("Not pick => " + idx + 1 + "arr => " + arr + "ds => " + ds);
+        solve(idx + 1, arr, ds);
+    }
 
-        subsets(arr, i + 1, temp);
+    public static void main(String[] args) {
 
-        System.out.println("⬅ EXIT CALL i = " + i + " temp = " + temp);
+        int[] arr = {4, 5, 6};
+
+        solve(0, arr, new ArrayList<>());
     }
 
 }
