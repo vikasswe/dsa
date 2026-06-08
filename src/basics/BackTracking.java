@@ -11,20 +11,32 @@ public class BackTracking {
     }
 
     static void subsets(int[] arr, int i, List<Integer> temp) {
-        System.out.println("Method call iteration => " + i);
+
+        System.out.println("\n➡ ENTER CALL i = " + i + " temp = " + temp);
+
         if (i == arr.length) {
-            System.out.println(temp);
-            System.out.println("================================== condition match =================================");
+            System.out.println("✔ BASE CASE HIT i = " + i + " temp = " + temp);
             return;
         }
 
-        System.out.println("I before BackTracking => " + i);
+        // TAKE
+        System.out.println("👉 TAKE i = " + i + " value = " + arr[i]);
         temp.add(arr[i]);
+        System.out.println("temp after add = " + temp);
+
         subsets(arr, i + 1, temp);
 
-        System.out.println("I Before remove => " + i);
+        // BACKTRACK
+        System.out.println("🔙 BACKTRACK i = " + i + " removing = " + temp.get(temp.size() - 1));
         temp.remove(temp.size() - 1);
+        System.out.println("temp after remove = " + temp);
+
+        // DON'T TAKE
+        System.out.println("👉 DON'T TAKE i = " + i);
+
         subsets(arr, i + 1, temp);
+
+        System.out.println("⬅ EXIT CALL i = " + i + " temp = " + temp);
     }
 
 }
