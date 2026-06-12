@@ -9,6 +9,3 @@ class Node {
         this.next = null;
     }
 }
-
-
-// what is LRU Cache (uses Doubly Linked List + HashMap)
